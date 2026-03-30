@@ -11,6 +11,10 @@ composer.lock
 node_modules/
 dist/
 build/
+.svelte-kit/generated
+.svelte-kit/types
+prisma/generated/
+prisma/migrations/
 
 # PHP cache / temp files
 *.log
