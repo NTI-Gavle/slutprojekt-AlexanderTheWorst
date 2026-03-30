@@ -6,6 +6,8 @@ import { config } from 'dotenv';
 
 config({ quiet: true, path: ".env" })
 
+console.log("RUNNNINGGGG")
+
 export default defineConfig({
     plugins: [tailwindcss(), sveltekit()],
     resolve: {

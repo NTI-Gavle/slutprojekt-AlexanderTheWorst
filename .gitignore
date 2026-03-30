@@ -11,7 +11,8 @@ composer.lock
 node_modules/
 dist/
 build/
-.svelte-kit/
+.svelte-kit/generated
+.svelte-kit/types
 prisma/generated/
 prisma/migrations/
 
