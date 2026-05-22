@@ -323,6 +323,8 @@ io.on("connection", async (socket: Socket) => {
     "join_room",
     async ({ code, name }: { code: string; name: string }) => {
       try {
+        if (name.length >= 25) return socket.emit("error", "Fuck you");
+
         const session = await Session.loadByCode(code);
         if (!session) return socket.emit("error", "Room not found");
 
@@ -386,6 +388,8 @@ io.on("connection", async (socket: Socket) => {
       if (question.answer.toLowerCase() == answer.toLowerCase()) {
         return socket.emit("error", "Boringgg, write a fake one instead.");
       }
+
+      if (answer.length >= 50) return socket.emit("error", "FUck you")
 
       const round = await session.submitAnswer(
         data.currentQuestion,

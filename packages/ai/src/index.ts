@@ -15,6 +15,7 @@ export type QuestionType =
   | "film"
   | "geography"
   | "history"
+  | "meme"
   | "science"
   | "sport"
   | "random";
@@ -36,6 +37,13 @@ const THEME_PROMPTS: Record<QuestionType, CallableFunction> = {
   Avoid picking the most obvious anthem lyrics everyone knows. Favor obscure-ish answers where players can write convincing or hilarious fakes.`,
 
   film: () => `Generate a film/movie trivia question. Use type "factual".
+  Be creative with format — good options include:
+  - A famous quote with a key word blanked ("You can't handle the ___")
+  - A weird behind-the-scenes fact ("What did the actor playing Darth Vader eat for breakfast during filming?" style — make up a real answerable version)
+  - An obscure character name, prop, or filming detail
+  Avoid: "who directed X" or "what year was X released" unless the answer is genuinely surprising. The answer must be short and invite funny fakes.`,
+
+  meme: () => `Generate a popular memes trivia question. Use type "factual".
   Be creative with format — good options include:
   - A famous quote with a key word blanked ("You can't handle the ___")
   - A weird behind-the-scenes fact ("What did the actor playing Darth Vader eat for breakfast during filming?" style — make up a real answerable version)
@@ -98,8 +106,6 @@ The fake answers must:
 - Be the same part of speech and rough length as the real answer
 - Sound like something a human player might genuinely write — plausible but wrong
 - NOT be obviously absurd or unrelated
-- Try to copy the writing style, humour and traits from players by analysing their old answers below but adapting the answer to fit into the question as a plausible-sounding answer
-${oldAnswers.map(a => `   - ${a}`).join("\n")}
 
 Respond ONLY with a valid JSON object with these fields:
 {

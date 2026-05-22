@@ -743,7 +743,7 @@
 						class="field answer-field"
 						bind:value={inputAnswer}
 						type="text"
-						placeholder="Your fake (or real) answer..."
+						placeholder="Your fake answer..."
 						onkeydown={(e) => e.key === 'Enter' && submitAnswer()}
 						autofocus
 					/>
